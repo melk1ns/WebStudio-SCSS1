@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+html {
+  width: 1600px;
+}
+@import "components/logo";
+@import "components/header";
+@import "components/baner";
+@import "components/posters";
