@@ -1,5 +1,5 @@
 .backdrop {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(150, 142, 142, 0.5);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -9,16 +9,12 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
-}
-.backdrop .is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
+
+  & .is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
 }
 
 .modal {
@@ -28,53 +24,102 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  background: $white-color;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+  &__title {
+    color: $text-color;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    width: 448px;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+  &__button--close {
+    border-radius: 50%;
+    background: $white-color;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    left: 490px;
+    top: 8px;
+  }
 }
 .baner {
   background-image: url(assets/baner.png);
   width: 1600px;
   height: 600px;
-}
-.baner__title {
-  color: #fff;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 44px;
-  font-weight: 900;
-  line-height: 60px;
-  letter-spacing: 2.64px;
-  width: 696px;
-  margin: 0 auto;
-  padding-top: 200px;
-}
-.baner__btn__wrapper {
-  display: flex;
-  justify-content: center;
-}
-.baner__btn,
-.btn--send {
-  width: 216px;
-  height: 50px;
-  border-radius: 4px;
-  background: #2196f3;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  color: #fff;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 30px;
-  letter-spacing: 0.96px;
-  border: none;
+
+  &__title {
+    color: $white-color;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 60px;
+    letter-spacing: 2.64px;
+    width: 696px;
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+
+  &btn__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn,
+  &--send {
+    width: 216px;
+    height: 50px;
+    border-radius: 4px;
+    background: $hover-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    color: $white-color;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.96px;
+    border: none;
+  }
+  &__button--close:hover path {
+    fill: $hover-color;
+  }
+  &__input {
+    padding-left: 42px;
+    width: 452px;
+    height: 46px;
+    color: $hover-color;
+    margin-right: 39px;
+  }
+  &__input:placeholder-shown {
+    width: 452px;
+    border-radius: 4px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+  }
+  &__input:placeholder-shown:hover,
+  textarea:placeholder-shown:hover {
+    border-color: $hover-color;
+    border-radius: 4px;
+    background: $white-color;
+  }
 }
 
-.modal__button {
-  display: flex;
-  justify-content: center;
-  // margin-top: 40px;
-}
 .field__header {
-  color: #757575;
+  color: $subtitle-color;
   font-family: "Roboto";
   font-size: 12px;
   font-weight: 400;
@@ -82,82 +127,36 @@
   margin-bottom: 4px;
   margin-top: 12px;
 }
-.modal__title {
-  color: #212121;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  width: 448px;
-  margin: 0 auto;
-  padding-top: 40px;
-}
-.modal__button--close {
-  border-radius: 50%;
-  background: #fff;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: absolute;
-  left: 490px;
-  top: 8px;
-}
-.modal__button--close:hover path {
-  fill: #2196f3;
-}
 .field__wrapper {
   position: relative;
 }
 .field__wrapper:hover path {
-  fill: #2196f3;
+  fill: $hover-color;
 }
 .field__wrapper,
 .field__header {
   margin-left: 40px;
 }
-.baner__input {
-  padding-left: 42px;
-  width: 452px;
-  height: 46px;
-  color: #2196f3;
-  margin-right: 39px;
-}
 textarea {
   width: 448px;
   height: 120px;
-}
-.baner__input:placeholder-shown {
-  width: 452px;
-  border-radius: 4px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
 }
 textarea:placeholder-shown {
   width: 448px;
   border-radius: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
 }
-.baner__input:placeholder-shown:hover,
-textarea:placeholder-shown:hover {
-  border-color: #2196f3;
-  border-radius: 4px;
-  background: #fff;
-}
 .checkbox {
   width: 16px;
   height: 15px;
-  border-color: #212121;
+  border-color: $text-color;
   color: #000;
   margin-top: 25px;
   margin-left: 54px;
   margin-right: 7px;
 }
 .field__label {
-  color: #757575;
+  color: $subtitle-color;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 400;
@@ -172,7 +171,7 @@ textarea:placeholder-shown:hover {
   height: 18px;
 }
 .filed__link {
-  color: #2196f3;
+  color: $hover-color;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 400;
